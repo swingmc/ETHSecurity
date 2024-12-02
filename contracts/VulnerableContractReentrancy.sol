@@ -10,8 +10,7 @@ contract VulnerableContractReentrancy {
 
     function withdrawFunds(uint256 _weiToWithdraw) public {
     require(balances[msg.sender] >= _weiToWithdraw, "Insufficient balance");
-    (bool success, ) = msg.sender.call{value: _weiToWithdraw}("");
-    require(success, "Transfer failed.");
+    msg.sender.call{value: _weiToWithdraw}("");
     balances[msg.sender] -= _weiToWithdraw;
 }
 }
