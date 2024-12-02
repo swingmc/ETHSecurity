@@ -32,3 +32,12 @@ Suppose there are ten accounts with index from 0-9 and all have 100 ether at fir
 
     // account withdraw all stealed balance from attacker contract
     await attacker.withdrawStolenFunds({from: accounts[1]});
+
+
+
+How to use mythril to analyze the contract:
+
+1. Install mythril
+    pip3 install mythril
+2. Analyze vulnerable contract
+    myth analyze contracts/VulnerableContractReentrancy.sol
